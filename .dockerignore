@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.swp
+.ipynb_checkpoints/
+src/mlops_hyperparameter_tuning.ipynb
+artifacts/
+report.md
+uv.lock

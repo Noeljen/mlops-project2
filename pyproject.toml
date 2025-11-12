@@ -1,0 +1,41 @@
+[build-system]
+requires = ["hatchling>=1.20.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "mlops-hpo"
+version = "0.1.0"
+description = "DistilBERT hyperparameter tuning with Dockerized execution."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Noel Jensen" }]
+dependencies = [
+    "torch",
+    "transformers",
+    "lightning",
+    "datasets",
+    "wandb",
+    "evaluate",
+    "scikit-learn",
+    "scipy",
+]
+
+[project.optional-dependencies]
+dev = ["uv"]
+
+[project.scripts]
+mlops-hpo = "mlops_hyperparameter_tuning.cli:main"
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/mlops_hyperparameter_tuning"]
+
+[tool.hatch.build.targets.sdist]
+exclude = [
+    "artifacts",
+    ".dockerignore",
+    "Dockerfile",
+    "report.md",
+]
